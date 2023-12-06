@@ -38,6 +38,7 @@
         ALLCSRC = 
         ALLINC = 
         ```
+        * 其中`xxxx`为工程名称，例如的工程叫`succssful`
         * 在`BUILD_DIR = build`后添加代码
         ```Makefile
         BUILD_DIR = build
