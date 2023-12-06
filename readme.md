@@ -1,5 +1,5 @@
 ### Instructions 
-这是一个使用STM32CubeMX创建STM32F103C8T6 FreeRTOS工程的示例,本工程使用 `gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-`编译器进行编译,而且并没有使用STM32封装过的FreeRTOS代码,而是使用FreeRTOS源码,配合`ARM_SEGGER_RTT`进行调试.
+这是一个使用STM32CubeMX创建STM32F103C8T6 FreeRTOS工程的示例,本工程使用 `gcc-arm-none-eabi-9-2020-q2-update/bin/arm-none-eabi-`编译器进行编译,而且并没有使用STM32CubeMX封装过的FreeRTOS代码,而是使用FreeRTOS源码,配合`ARM_SEGGER_RTT`进行调试.
 ### PORT
 * 首先,使用STM32CubeMX创建工程,根据具体需求配置相应的外设即可,需要注意的是在STM32CubeMX的`Pinout&Configuration`页面下的`System Core`菜单中的`SYS`配置项中,`Timebase Source`选项需要选择TIM1-TIM4中的任意一个,**万万不可选择SysTick,否则程序将不能正常运行*(因为SysTick将作为FreeRTOS的心跳)**.
 * `Clock Configuration`页面中的时钟树根据需求需要配置即可.
