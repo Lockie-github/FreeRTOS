@@ -35,8 +35,6 @@
         * 在`TARGET = xxxx`后添加代码:
         ```Makefile
         TARGET = succssful
-        ALLCSRC = 
-        ALLINC = 
         ```
         * 其中`xxxx`为工程名称，例如的工程叫`succssful`
         * 在`BUILD_DIR = build`后添加代码
@@ -51,7 +49,6 @@
         ```Makefile
         ASM_SOURCES =  \
         startup_stm32f103xb.s
-        MCU_ID = STM32F103C8
         ```    
         * 将`PREFIX = arm-none-eabi-`修改为本地编译器的地址,例如
         ```Makefile
@@ -61,15 +58,16 @@
         ```Makefile
         # C includes
         C_INCLUDES =  \
-        Core/Inc \
-        Drivers/STM32F1xx_HAL_Driver/Inc \
-        Drivers/STM32F1xx_HAL_Driver/Inc/Legacy \
-        Drivers/CMSIS/Device/ST/STM32F1xx/Include \
-        Drivers/CMSIS/Include
+        -ICore/Inc \
+        -IDrivers/STM32F1xx_HAL_Driver/Inc \
+        -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
+        -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
+        -IDrivers/CMSIS/Include
 
+        ALLINC := $(patsubst %,-I%,$(ALLINC))
         C_SOURCES += $(ALLCSRC)
         C_INCLUDES += $(ALLINC)
-        C_INCLUDES := $(patsubst %,-I%,$(C_INCLUDES))
+        
         
         # compile gcc flags
         ```
